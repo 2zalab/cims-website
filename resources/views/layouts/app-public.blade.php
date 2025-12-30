@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title', 'CIMS - Cercle des Ingénieurs de Mayo-Sava')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -15,7 +15,7 @@
             --accent-color: #b45309;
             --dark-color: #1e293b;
             --light-gray: #f8fafc;
-            --border-color: #e2e8f0;
+            --border-color: #10b981;
             --gold-dark: #b45309;
             --green: #10b981;
         }
@@ -127,6 +127,10 @@
             box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);
         }
 
+        .btn-outline-light{
+            border: 2px solid #059669;
+        }
+
         .btn-outline-primary {
             border: 2px solid var(--gold-dark);
             color: var(--gold-dark);
@@ -141,7 +145,7 @@
 
         /* Cards */
         .card {
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--border-color) !important;
             border-radius: 16px;
             overflow: hidden;
             transition: all 0.4s ease;
@@ -209,7 +213,8 @@
 
         /* Footer */
         footer {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+
+            background: linear-gradient(135deg, #3b2f1c 0%, #0f0c08 100%);
             color: #fff;
             padding: 60px 0 30px;
             margin-top: 80px;
@@ -221,6 +226,9 @@
             transition: color 0.3s;
         }
 
+        .text-warning {
+            color: #d97706 !important;
+        }
         footer a:hover {
             color: var(--green);
         }
@@ -281,6 +289,30 @@
                 padding: 60px 0 40px;
             }
         }
+
+        /** Page contact */
+        .btn-linkedin {
+            color: #0A66C2;
+            border: 2px solid #0A66C2;
+            background-color: transparent;
+        }
+
+        .btn-linkedin:hover {
+            background-color: #0A66C2;
+            color: #ffffff;
+        }
+        .btn-x {
+            color: #000000;
+            border: 2px solid #000000;
+            background-color: transparent;
+        }
+
+        .btn-x:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+
     </style>
     @yield('styles')
 </head>
@@ -386,10 +418,10 @@
                     </p>
                 </div>
             </div>
-            <hr class="my-4" style="border-color: rgba(255,255,255,0.1)">
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.8)">
             <div class="text-center">
                 <p class="mb-0">&copy; {{ date('Y') }} CIMS - Cercle des Ingénieurs de Mayo-Sava. Tous droits réservés.</p>
-                <p class="small mt-1">Développé avec <i class="fas fa-heart text-danger"></i> par <a href="https://mit.cm" target="_blank" class="text-warning">Maroua Innovation Technology</a></p>
+                <p class="small mt-1">Développé par <a href="https://mit.cm" target="_blank" class="text-warning">Maroua Innovation Technology</a></p>
             </div>
         </div>
     </footer>

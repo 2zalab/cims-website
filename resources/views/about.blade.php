@@ -336,7 +336,7 @@
 <!-- Call to Action -->
 <div class="bg-light py-5">
     <div class="main-container">
-        <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px;">
+        <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, #b45309 0%, #10b981 100%); border-radius: 20px;">
             <div class="card-body p-5 text-center text-white">
                 <h2 class="fw-bold mb-4">Vous êtes ingénieur originaire de Mayo-Sava ?</h2>
                 <p class="lead mb-4">Rejoignez-nous et participez au développement de notre département</p>

@@ -128,8 +128,8 @@
             <div class="mt-4 text-center">
                 <h6 class="mb-3">Suivez-nous</h6>
                 <a href="#" class="btn btn-outline-primary btn-lg me-2"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="btn btn-outline-info btn-lg me-2"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="btn btn-outline-danger btn-lg"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="btn btn-x btn-lg me-2"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" class="btn btn-linkedin btn-lg"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
     </div>

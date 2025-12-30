@@ -35,10 +35,10 @@
     }
 
     .president-photo {
-        width: 280px;
-        height: 280px;
+        width: 300px;
+        height: 400px;
         object-fit: cover;
-        border-radius: 50%;
+        border-radius: 35%;
         border: 6px solid white;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
@@ -103,7 +103,7 @@
 @section('content')
 <!-- Hero Section with Background -->
 <div class="hero-section text-center {{ !file_exists(public_path('images/hero.png')) ? 'no-bg' : '' }}">
-    <div class="main-container position-relative" style="z-index: 2; padding: 50px 0 80px;">
+    <div class="main-container position-relative" style="z-index: 2; padding: 20px 0 20px;">
         <h1 class="display-3 fw-bold mb-4 fade-in-up">Cercle des Ingénieurs de Mayo-Sava</h1>
         <p class="lead mb-2 fs-3 fw-semibold">Solidarité - Développement - Unité</p>
         <p class="mb-5 fs-5" style="max-width: 700px; margin: 0 auto;">
@@ -121,7 +121,7 @@
 </div>
 
 <!-- Stats Section -->
-<div class="main-container my-5 py-5">
+<div class="main-container my-5 py-2">
     <div class="text-center mb-5">
         <h2 class="section-title">CIMS en Chiffres</h2>
         <p class="section-subtitle">Notre impact sur le terrain</p>
@@ -169,7 +169,7 @@
                     <div class="stat-icon text-danger">
                         <i class="fas fa-handshake"></i>
                     </div>
-                    <div class="stat-number text-danger">12+</div>
+                    <div class="stat-number text-danger">{{ $partners->count() }}+</div>
                     <h5 class="fw-semibold mb-0">Partenaires</h5>
                     <p class="text-muted small mt-2">Collaborations actives</p>
                 </div>
@@ -269,7 +269,7 @@
 </div>
 
 <!-- Activités Récentes -->
-<div class="bg-light py-5">
+<div class="bg-light py-2">
     <div class="main-container">
         <div class="text-center mb-5">
             <h2 class="section-title">Nos Dernières Activités</h2>
@@ -322,7 +322,7 @@
 
 <!-- Actualités -->
 <div class="main-container section">
-    <div class="text-center mb-5">
+    <div class="text-center mb-3">
         <h2 class="section-title">Actualités Récentes</h2>
         <p class="section-subtitle">Restez informés de nos dernières nouvelles</p>
     </div>
@@ -371,7 +371,7 @@
 
 <!-- Galerie Aperçu -->
 @if($galleries->count() > 0)
-<div class="bg-light py-5">
+<div class="bg-light py-2">
     <div class="main-container">
         <div class="text-center mb-5">
             <h2 class="section-title">Galerie Photos</h2>
@@ -397,6 +397,19 @@
     </div>
 </div>
 @endif
+
+<!-- Call to Action -->
+<div class="main-container section">
+    <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, #b45309 0%, #10b981 100%); border-radius: 20px;">
+        <div class="card-body p-5 text-center text-white">
+            <h2 class="display-5 fw-bold mb-4">Rejoignez-nous dans notre mission !</h2>
+            <p class="lead mb-4">Ensemble, construisons un Mayo-Sava prospère et durable</p>
+            <a href="{{ route('contact.index') }}" class="btn btn-light btn-lg px-5 py-3">
+                <i class="fas fa-envelope me-2"></i>Contactez-nous
+            </a>
+        </div>
+    </div>
+</div>
 
 <!-- Nos Partenaires -->
 @if($partners->count() > 0)
@@ -433,16 +446,4 @@
 </div>
 @endif
 
-<!-- Call to Action -->
-<div class="main-container section">
-    <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, #b45309 0%, #10b981 100%); border-radius: 20px;">
-        <div class="card-body p-5 text-center text-white">
-            <h2 class="display-5 fw-bold mb-4">Rejoignez-nous dans notre mission !</h2>
-            <p class="lead mb-4">Ensemble, construisons un Mayo-Sava prospère et durable</p>
-            <a href="{{ route('contact.index') }}" class="btn btn-light btn-lg px-5 py-3">
-                <i class="fas fa-envelope me-2"></i>Contactez-nous
-            </a>
-        </div>
-    </div>
-</div>
 @endsection
