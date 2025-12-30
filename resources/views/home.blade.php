@@ -61,7 +61,7 @@
 @section('content')
 <!-- Hero Section with Background -->
 <div class="hero-section text-center {{ !file_exists(public_path('images/hero-bg.jpg')) ? 'no-bg' : '' }}">
-    <div class="main-container position-relative" style="z-index: 1; padding: 100px 0 80px;">
+    <div class="main-container position-relative" style="z-index: 1; padding: 50px 0 80px;">
         <h1 class="display-3 fw-bold mb-4 fade-in-up">Cercle des Ingénieurs de Mayo-Sava</h1>
         <p class="lead mb-2 fs-3 fw-semibold">Solidarité - Développement - Unité</p>
         <p class="mb-5 fs-5" style="max-width: 700px; margin: 0 auto;">

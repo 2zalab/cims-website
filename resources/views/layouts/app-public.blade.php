@@ -261,7 +261,8 @@
     <!-- Navbar moderne -->
     <nav class="navbar navbar-expand-lg">
         <div class="main-container">
-            <a class="navbar-brand" href="{{ route('home') }}">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <a class="navbar-brand" href="{{ route('home') }}">
                 @if(file_exists(public_path('images/logo-cims.png')))
                     <img src="{{ asset('images/logo-cims.png') }}" alt="CIMS Logo">
                 @else
@@ -272,7 +273,7 @@
             <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">
