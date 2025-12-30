@@ -3,136 +3,309 @@
 @section('title', 'Accueil - CIMS')
 
 @section('content')
+<!-- Hero Section -->
 <div class="hero-section text-center">
-    <div class="container">
-        <h1 class="display-3 fw-bold mb-4">Cercle des Ingénieurs de Mayo-Sava</h1>
-        <p class="lead mb-4">Solidarité - Développement - Unité</p>
-        <p class="mb-4">Ensemble pour le développement durable du Département de Mayo-Sava</p>
-        <div>
-            <a href="{{ route('about') }}" class="btn btn-light btn-lg me-2"><i class="fas fa-info-circle"></i> En savoir plus</a>
-            <a href="{{ route('contact.index') }}" class="btn btn-success btn-lg"><i class="fas fa-envelope"></i> Nous contacter</a>
+    <div class="main-container position-relative" style="z-index: 1;">
+        <h1 class="display-3 fw-bold mb-4 fade-in-up">Cercle des Ingénieurs de Mayo-Sava</h1>
+        <p class="lead mb-2 fs-3 fw-semibold">Solidarité - Développement - Unité</p>
+        <p class="mb-5 fs-5" style="max-width: 700px; margin: 0 auto;">
+            Ensemble pour le développement durable et harmonieux du Département de Mayo-Sava
+        </p>
+        <div class="fade-in-up">
+            <a href="{{ route('about') }}" class="btn btn-light btn-lg me-3 px-4 py-3">
+                <i class="fas fa-info-circle me-2"></i>Découvrir CIMS
+            </a>
+            <a href="{{ route('contact.index') }}" class="btn btn-outline-light btn-lg px-4 py-3">
+                <i class="fas fa-envelope me-2"></i>Nous Contacter
+            </a>
         </div>
     </div>
 </div>
 
-<div class="container my-5">
-    <div class="row text-center mb-5">
-        <div class="col-md-4 mb-4">
-            <div class="card border-0 shadow-sm h-100">
+<!-- Stats Section -->
+<div class="main-container my-5 py-5">
+    <div class="row g-4 text-center">
+        <div class="col-md-3 col-6">
+            <div class="card border-0 shadow-sm h-100 p-4">
                 <div class="card-body">
-                    <i class="fas fa-lightbulb fa-3x text-primary mb-3"></i>
-                    <h5>Innovation</h5>
-                    <p class="text-muted">Promouvoir l'innovation et l'entrepreneuriat local pour le développement</p>
+                    <div class="display-4 fw-bold text-primary mb-2">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="fw-bold text-primary mb-2">{{ $activities->count() + 15 }}+</h3>
+                    <p class="text-muted mb-0">Membres Actifs</p>
                 </div>
             </div>
         </div>
-        <div class="col-md-4 mb-4">
-            <div class="card border-0 shadow-sm h-100">
+        <div class="col-md-3 col-6">
+            <div class="card border-0 shadow-sm h-100 p-4">
                 <div class="card-body">
-                    <i class="fas fa-users fa-3x text-success mb-3"></i>
-                    <h5>Solidarité</h5>
-                    <p class="text-muted">Travailler ensemble pour le bien-être de notre communauté</p>
+                    <div class="display-4 fw-bold text-success mb-2">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3 class="fw-bold text-success mb-2">{{ $activities->count() + 8 }}+</h3>
+                    <p class="text-muted mb-0">Projets Réalisés</p>
                 </div>
             </div>
         </div>
-        <div class="col-md-4 mb-4">
-            <div class="card border-0 shadow-sm h-100">
+        <div class="col-md-3 col-6">
+            <div class="card border-0 shadow-sm h-100 p-4">
                 <div class="card-body">
-                    <i class="fas fa-chart-line fa-3x text-warning mb-3"></i>
-                    <h5>Développement</h5>
-                    <p class="text-muted">Participer activement au développement durable de Mayo-Sava</p>
+                    <div class="display-4 fw-bold text-warning mb-2">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="fw-bold text-warning mb-2">12+</h3>
+                    <p class="text-muted mb-0">Partenaires</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="card border-0 shadow-sm h-100 p-4">
+                <div class="card-body">
+                    <div class="display-4 fw-bold text-danger mb-2">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="fw-bold text-danger mb-2">3</h3>
+                    <p class="text-muted mb-0">Communes</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <h2 class="text-center mb-4">Nos Dernières Activités</h2>
-    <div class="row mb-5">
-        @forelse($activities as $activity)
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 shadow-sm">
-                @if($activity->image)
-                <img src="{{ asset('storage/' . $activity->image) }}" class="card-img-top" alt="{{ $activity->title }}" style="height: 200px; object-fit: cover;">
-                @else
-                <div class="bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 200px;">
-                    <i class="fas fa-image fa-3x"></i>
+<!-- Mot du Président -->
+<div class="bg-light py-5">
+    <div class="main-container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-5 text-center">
+                <div class="position-relative d-inline-block">
+                    <div class="bg-primary" style="width: 300px; height: 300px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                        <i class="fas fa-user-tie fa-10x text-white" style="font-size: 8rem;"></i>
+                    </div>
+                    <div class="position-absolute bottom-0 start-50 translate-middle-x bg-white rounded-pill px-4 py-2 shadow">
+                        <p class="mb-0 fw-bold text-primary">M. GOGOLA LALA</p>
+                        <p class="mb-0 small text-muted">Président CIMS</p>
+                    </div>
                 </div>
-                @endif
-                <div class="card-body">
-                    <h5 class="card-title">{{ $activity->title }}</h5>
-                    <p class="card-text text-muted small">
-                        <i class="fas fa-calendar"></i> {{ $activity->activity_date ? $activity->activity_date->format('d/m/Y') : 'Date à déterminer' }}
-                        @if($activity->location)
-                        <br><i class="fas fa-map-marker-alt"></i> {{ $activity->location }}
-                        @endif
+            </div>
+            <div class="col-lg-7">
+                <span class="badge bg-primary mb-3 px-3 py-2">Mot du Président</span>
+                <h2 class="section-title mb-4">Un Engagement pour Notre Développement</h2>
+                <div class="position-relative ps-4 border-start border-primary border-4">
+                    <p class="fs-5 text-muted fst-italic mb-4">
+                        "Chers membres, chers partenaires, chers amis du développement,"
                     </p>
-                    <p class="card-text">{{ Str::limit($activity->description, 100) }}</p>
-                    <a href="{{ route('activities.show', $activity) }}" class="btn btn-primary btn-sm">Lire plus</a>
+                    <p class="mb-3">
+                        C'est avec un immense honneur et une profonde reconnaissance que je m'adresse à vous en tant que Président du Cercle des Ingénieurs de Mayo-Sava. Notre association, guidée par les valeurs de <strong>Solidarité, Développement et Unité</strong>, s'est donnée pour mission de contribuer activement à l'émergence de notre département.
+                    </p>
+                    <p class="mb-3">
+                        Ensemble, nous mettons notre expertise d'ingénieurs au service des communautés de Mayo-Sava. Que ce soit dans les domaines de l'eau et l'assainissement, de l'énergie, de l'agriculture ou de l'environnement, notre engagement reste inébranlable.
+                    </p>
+                    <p class="mb-4">
+                        Je vous invite tous à vous joindre à nous dans cette noble mission de bâtir un Mayo-Sava prospère, résilient et durable pour les générations présentes et futures.
+                    </p>
+                    <p class="mb-0 fw-bold">
+                        Ensemble, construisons l'avenir !
+                    </p>
                 </div>
             </div>
         </div>
-        @empty
-        <div class="col-12 text-center">
-            <p class="text-muted">Aucune activité pour le moment.</p>
-        </div>
-        @endforelse
     </div>
-    @if($activities->count() > 0)
-    <div class="text-center mb-5">
-        <a href="{{ route('activities.index') }}" class="btn btn-outline-primary">Voir toutes les activités</a>
-    </div>
-    @endif
+</div>
 
-    <h2 class="text-center mb-4">Actualités Récentes</h2>
-    <div class="row mb-5">
+<!-- Mission & Vision -->
+<div class="main-container section">
+    <div class="text-center mb-5">
+        <h2 class="section-title">Notre Mission</h2>
+        <p class="section-subtitle">Contribuer au développement durable de Mayo-Sava</p>
+    </div>
+    <div class="row g-4">
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm h-100 text-center p-4">
+                <div class="card-body">
+                    <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                        <i class="fas fa-lightbulb fa-2x text-primary"></i>
+                    </div>
+                    <h4 class="mb-3">Innovation</h4>
+                    <p class="text-muted">Promouvoir l'innovation technologique et l'entrepreneuriat local pour un développement inclusif et durable.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm h-100 text-center p-4">
+                <div class="card-body">
+                    <div class="bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                        <i class="fas fa-users fa-2x text-success"></i>
+                    </div>
+                    <h4 class="mb-3">Solidarité</h4>
+                    <p class="text-muted">Travailler ensemble dans la solidarité pour le bien-être et l'épanouissement de nos communautés.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm h-100 text-center p-4">
+                <div class="card-body">
+                    <div class="bg-warning bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                        <i class="fas fa-chart-line fa-2x text-warning"></i>
+                    </div>
+                    <h4 class="mb-3">Développement</h4>
+                    <p class="text-muted">Participer activement aux projets de développement durable alignés sur la vision 2035 du Cameroun.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Activités Récentes -->
+<div class="bg-light py-5">
+    <div class="main-container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Nos Dernières Activités</h2>
+            <p class="section-subtitle">Découvrez nos actions sur le terrain</p>
+        </div>
+        <div class="row g-4">
+            @forelse($activities as $activity)
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    @if($activity->image)
+                    <div style="height: 220px; overflow: hidden;">
+                        <img src="{{ asset('storage/' . $activity->image) }}" class="card-img-top" alt="{{ $activity->title }}" style="height: 100%; width: 100%; object-fit: cover;">
+                    </div>
+                    @else
+                    <div class="bg-gradient d-flex align-items-center justify-content-center" style="height: 220px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <i class="fas fa-image fa-4x text-white opacity-50"></i>
+                    </div>
+                    @endif
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <span class="badge bg-primary">{{ $activity->activity_date ? $activity->activity_date->format('d M Y') : 'À venir' }}</span>
+                            @if($activity->location)
+                            <span class="badge bg-secondary ms-2"><i class="fas fa-map-marker-alt me-1"></i>{{ Str::limit($activity->location, 15) }}</span>
+                            @endif
+                        </div>
+                        <h5 class="card-title fw-bold mb-3">{{ $activity->title }}</h5>
+                        <p class="card-text text-muted mb-4">{{ Str::limit($activity->description, 120) }}</p>
+                        <a href="{{ route('activities.show', $activity) }}" class="btn btn-outline-primary btn-sm">
+                            Lire plus <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            @empty
+            <div class="col-12 text-center py-5">
+                <i class="fas fa-calendar-times fa-4x text-muted mb-3"></i>
+                <p class="text-muted fs-5">Aucune activité pour le moment.</p>
+            </div>
+            @endforelse
+        </div>
+        @if($activities->count() > 0)
+        <div class="text-center mt-5">
+            <a href="{{ route('activities.index') }}" class="btn btn-primary btn-lg px-5">
+                Voir toutes les activités <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+        </div>
+        @endif
+    </div>
+</div>
+
+<!-- Actualités -->
+<div class="main-container section">
+    <div class="text-center mb-5">
+        <h2 class="section-title">Actualités Récentes</h2>
+        <p class="section-subtitle">Restez informés de nos dernières nouvelles</p>
+    </div>
+    <div class="row g-4">
         @forelse($news as $item)
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 shadow-sm">
+        <div class="col-lg-4 col-md-6">
+            <div class="card border-0 shadow-sm h-100">
                 @if($item->image)
-                <img src="{{ asset('storage/' . $item->image) }}" class="card-img-top" alt="{{ $item->title }}" style="height: 200px; object-fit: cover;">
+                <div style="height: 220px; overflow: hidden;">
+                    <img src="{{ asset('storage/' . $item->image) }}" class="card-img-top" alt="{{ $item->title }}" style="height: 100%; width: 100%; object-fit: cover;">
+                </div>
                 @else
-                <div class="bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 200px;">
-                    <i class="fas fa-newspaper fa-3x"></i>
+                <div class="bg-gradient d-flex align-items-center justify-content-center" style="height: 220px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <i class="fas fa-newspaper fa-4x text-white opacity-50"></i>
                 </div>
                 @endif
-                <div class="card-body">
-                    <h5 class="card-title">{{ $item->title }}</h5>
-                    <p class="card-text text-muted small"><i class="fas fa-clock"></i> {{ $item->created_at->diffForHumans() }}</p>
-                    <p class="card-text">{{ Str::limit($item->excerpt ?? $item->content, 100) }}</p>
-                    <a href="{{ route('news.show', $item) }}" class="btn btn-primary btn-sm">Lire la suite</a>
+                <div class="card-body p-4">
+                    <div class="mb-3">
+                        <span class="badge bg-success">
+                            <i class="fas fa-clock me-1"></i>{{ $item->created_at->diffForHumans() }}
+                        </span>
+                    </div>
+                    <h5 class="card-title fw-bold mb-3">{{ $item->title }}</h5>
+                    <p class="card-text text-muted mb-4">{{ Str::limit($item->excerpt ?? $item->content, 120) }}</p>
+                    <a href="{{ route('news.show', $item) }}" class="btn btn-outline-success btn-sm">
+                        Lire la suite <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
                 </div>
             </div>
         </div>
         @empty
-        <div class="col-12 text-center">
-            <p class="text-muted">Aucune actualité pour le moment.</p>
+        <div class="col-12 text-center py-5">
+            <i class="fas fa-newspaper fa-4x text-muted mb-3"></i>
+            <p class="text-muted fs-5">Aucune actualité pour le moment.</p>
         </div>
         @endforelse
     </div>
     @if($news->count() > 0)
-    <div class="text-center mb-5">
-        <a href="{{ route('news.index') }}" class="btn btn-outline-primary">Voir toutes les actualités</a>
-    </div>
-    @endif
-
-    <h2 class="text-center mb-4">Galerie Photos</h2>
-    <div class="row">
-        @forelse($galleries as $gallery)
-        <div class="col-md-2 col-sm-4 col-6 mb-3">
-            <a href="{{ asset('storage/' . $gallery->image) }}" data-lightbox="gallery">
-                <img src="{{ asset('storage/' . $gallery->image) }}" alt="{{ $gallery->title }}" class="img-fluid rounded shadow-sm" style="height: 150px; width: 100%; object-fit: cover;">
-            </a>
-        </div>
-        @empty
-        <div class="col-12 text-center">
-            <p class="text-muted">Aucune image dans la galerie pour le moment.</p>
-        </div>
-        @endforelse
-    </div>
-    @if($galleries->count() > 0)
-    <div class="text-center mt-4">
-        <a href="{{ route('gallery.index') }}" class="btn btn-outline-primary">Voir toute la galerie</a>
+    <div class="text-center mt-5">
+        <a href="{{ route('news.index') }}" class="btn btn-success btn-lg px-5">
+            Toutes les actualités <i class="fas fa-arrow-right ms-2"></i>
+        </a>
     </div>
     @endif
 </div>
+
+<!-- Galerie Aperçu -->
+@if($galleries->count() > 0)
+<div class="bg-light py-5">
+    <div class="main-container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Galerie Photos</h2>
+            <p class="section-subtitle">Nos moments en images</p>
+        </div>
+        <div class="row g-3">
+            @foreach($galleries->take(6) as $gallery)
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                <a href="{{ asset('storage/' . $gallery->image) }}" class="d-block position-relative overflow-hidden rounded" style="height: 150px;">
+                    <img src="{{ asset('storage/' . $gallery->image) }}" alt="{{ $gallery->title }}" class="w-100 h-100" style="object-fit: cover; transition: transform 0.3s;">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 opacity-0 d-flex align-items-center justify-content-center" style="transition: opacity 0.3s;">
+                        <i class="fas fa-search-plus text-white fa-2x"></i>
+                    </div>
+                </a>
+            </div>
+            @endforeach
+        </div>
+        <div class="text-center mt-5">
+            <a href="{{ route('gallery.index') }}" class="btn btn-outline-primary btn-lg px-5">
+                Voir toute la galerie <i class="fas fa-images ms-2"></i>
+            </a>
+        </div>
+    </div>
+</div>
+@endif
+
+<!-- Call to Action -->
+<div class="main-container section">
+    <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px;">
+        <div class="card-body p-5 text-center text-white">
+            <h2 class="display-5 fw-bold mb-4">Rejoignez-nous dans notre mission !</h2>
+            <p class="lead mb-4">Ensemble, construisons un Mayo-Sava prospère et durable</p>
+            <a href="{{ route('contact.index') }}" class="btn btn-light btn-lg px-5 py-3">
+                <i class="fas fa-envelope me-2"></i>Contactez-nous
+            </a>
+        </div>
+    </div>
+</div>
+
+@section('styles')
+<style>
+    .card:hover .position-absolute {
+        opacity: 1 !important;
+    }
+    .card:hover img {
+        transform: scale(1.1);
+    }
+</style>
+@endsection
 @endsection
