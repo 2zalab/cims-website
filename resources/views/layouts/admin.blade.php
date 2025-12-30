@@ -476,6 +476,10 @@
                 <i class="fas fa-envelope"></i>
                 <span>Messages</span>
             </a>
+            <a class="nav-link {{ request()->routeIs('admin.partners.*') ? 'active' : '' }}" href="{{ route('admin.partners.index') }}">
+                <i class="fas fa-handshake"></i>
+                <span>Partenaires</span>
+            </a>
 
             <hr class="sidebar-divider">
 

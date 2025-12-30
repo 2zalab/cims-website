@@ -398,6 +398,41 @@
 </div>
 @endif
 
+<!-- Nos Partenaires -->
+@if($partners->count() > 0)
+<div class="main-container section">
+    <div class="text-center mb-5">
+        <h2 class="section-title">Nos Partenaires</h2>
+        <p class="section-subtitle">Ils nous font confiance et soutiennent notre mission</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+        @foreach($partners as $partner)
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+            <div class="card border-0 shadow-sm h-100 text-center p-3 position-relative" style="transition: all 0.3s ease;">
+                <div class="card-body d-flex align-items-center justify-content-center">
+                    @if($partner->logo)
+                    <img src="{{ asset('storage/' . $partner->logo) }}"
+                         alt="{{ $partner->name }}"
+                         class="img-fluid"
+                         style="max-height: 80px; max-width: 100%; object-fit: contain;"
+                         title="{{ $partner->name }}">
+                    @else
+                    <div class="text-center">
+                        <i class="fas fa-handshake fa-3x text-primary mb-2"></i>
+                        <p class="mb-0 small fw-semibold">{{ $partner->name }}</p>
+                    </div>
+                    @endif
+                </div>
+                @if($partner->website)
+                <a href="{{ $partner->website }}" target="_blank" rel="noopener noreferrer" class="stretched-link" title="Visiter le site de {{ $partner->name }}"></a>
+                @endif
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
+@endif
+
 <!-- Call to Action -->
 <div class="main-container section">
     <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, #b45309 0%, #10b981 100%); border-radius: 20px;">

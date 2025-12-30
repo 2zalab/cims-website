@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Activity;
 use App\Models\News;
 use App\Models\Gallery;
+use App\Models\Partner;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -26,6 +27,10 @@ class HomeController extends Controller
             ->take(6)
             ->get();
 
-        return view('home', compact('activities', 'news', 'galleries'));
+        $partners = Partner::where('is_active', true)
+            ->orderBy('order')
+            ->get();
+
+        return view('home', compact('activities', 'news', 'galleries', 'partners'));
     }
 }
