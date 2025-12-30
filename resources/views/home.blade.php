@@ -2,10 +2,66 @@
 
 @section('title', 'Accueil - CIMS')
 
+@section('styles')
+<style>
+    .hero-section {
+        position: relative;
+        background-image: url('{{ asset("images/hero-bg.jpg") }}');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+        backdrop-filter: blur(3px);
+    }
+
+    /* Si pas d'image, utiliser un fond par défaut */
+    .hero-section.no-bg {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .president-photo {
+        width: 280px;
+        height: 280px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 6px solid white;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .stat-card {
+        transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .stat-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+</style>
+@endsection
+
 @section('content')
-<!-- Hero Section -->
-<div class="hero-section text-center">
-    <div class="main-container position-relative" style="z-index: 1;">
+<!-- Hero Section with Background -->
+<div class="hero-section text-center {{ !file_exists(public_path('images/hero-bg.jpg')) ? 'no-bg' : '' }}">
+    <div class="main-container position-relative" style="z-index: 1; padding: 100px 0 80px;">
         <h1 class="display-3 fw-bold mb-4 fade-in-up">Cercle des Ingénieurs de Mayo-Sava</h1>
         <p class="lead mb-2 fs-3 fw-semibold">Solidarité - Développement - Unité</p>
         <p class="mb-5 fs-5" style="max-width: 700px; margin: 0 auto;">
@@ -24,48 +80,56 @@
 
 <!-- Stats Section -->
 <div class="main-container my-5 py-5">
-    <div class="row g-4 text-center">
-        <div class="col-md-3 col-6">
-            <div class="card border-0 shadow-sm h-100 p-4">
+    <div class="text-center mb-5">
+        <h2 class="section-title">CIMS en Chiffres</h2>
+        <p class="section-subtitle">Notre impact sur le terrain</p>
+    </div>
+    <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+            <div class="card border-0 shadow-sm stat-card h-100 text-center p-4">
                 <div class="card-body">
-                    <div class="display-4 fw-bold text-primary mb-2">
+                    <div class="stat-icon text-primary">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3 class="fw-bold text-primary mb-2">{{ $activities->count() + 15 }}+</h3>
-                    <p class="text-muted mb-0">Membres Actifs</p>
+                    <div class="stat-number text-primary">{{ $activities->count() + 15 }}+</div>
+                    <h5 class="fw-semibold mb-0">Membres Actifs</h5>
+                    <p class="text-muted small mt-2">Ingénieurs qualifiés et engagés</p>
                 </div>
             </div>
         </div>
-        <div class="col-md-3 col-6">
-            <div class="card border-0 shadow-sm h-100 p-4">
+        <div class="col-lg-3 col-md-6">
+            <div class="card border-0 shadow-sm stat-card h-100 text-center p-4">
                 <div class="card-body">
-                    <div class="display-4 fw-bold text-success mb-2">
-                        <i class="fas fa-project-diagram"></i>
+                    <div class="stat-icon text-success">
+                        <i class="fas fa-check-circle"></i>
                     </div>
-                    <h3 class="fw-bold text-success mb-2">{{ $activities->count() + 8 }}+</h3>
-                    <p class="text-muted mb-0">Projets Réalisés</p>
+                    <div class="stat-number text-success">{{ $activities->count() }}+</div>
+                    <h5 class="fw-semibold mb-0">Activités</h5>
+                    <p class="text-muted small mt-2">Projets réalisés et en cours</p>
                 </div>
             </div>
         </div>
-        <div class="col-md-3 col-6">
-            <div class="card border-0 shadow-sm h-100 p-4">
+        <div class="col-lg-3 col-md-6">
+            <div class="card border-0 shadow-sm stat-card h-100 text-center p-4">
                 <div class="card-body">
-                    <div class="display-4 fw-bold text-warning mb-2">
+                    <div class="stat-icon text-warning">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="stat-number text-warning">{{ $news->count() }}+</div>
+                    <h5 class="fw-semibold mb-0">Actualités</h5>
+                    <p class="text-muted small mt-2">Publications et annonces</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="card border-0 shadow-sm stat-card h-100 text-center p-4">
+                <div class="card-body">
+                    <div class="stat-icon text-danger">
                         <i class="fas fa-handshake"></i>
                     </div>
-                    <h3 class="fw-bold text-warning mb-2">12+</h3>
-                    <p class="text-muted mb-0">Partenaires</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-6">
-            <div class="card border-0 shadow-sm h-100 p-4">
-                <div class="card-body">
-                    <div class="display-4 fw-bold text-danger mb-2">
-                        <i class="fas fa-map-marked-alt"></i>
-                    </div>
-                    <h3 class="fw-bold text-danger mb-2">3</h3>
-                    <p class="text-muted mb-0">Communes</p>
+                    <div class="stat-number text-danger">12+</div>
+                    <h5 class="fw-semibold mb-0">Partenaires</h5>
+                    <p class="text-muted small mt-2">Collaborations actives</p>
                 </div>
             </div>
         </div>
@@ -76,35 +140,42 @@
 <div class="bg-light py-5">
     <div class="main-container">
         <div class="row align-items-center g-5">
-            <div class="col-lg-5 text-center">
+            <div class="col-lg-4 text-center">
                 <div class="position-relative d-inline-block">
-                    <div class="bg-primary" style="width: 300px; height: 300px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
-                        <i class="fas fa-user-tie fa-10x text-white" style="font-size: 8rem;"></i>
-                    </div>
-                    <div class="position-absolute bottom-0 start-50 translate-middle-x bg-white rounded-pill px-4 py-2 shadow">
-                        <p class="mb-0 fw-bold text-primary">M. GOGOLA LALA</p>
+                    @if(file_exists(public_path('images/president.jpg')))
+                        <img src="{{ asset('images/president.jpg') }}" alt="M. GOGOLA LALA" class="president-photo">
+                    @else
+                        <!-- Placeholder avec initiales -->
+                        <div class="president-photo bg-primary d-flex align-items-center justify-content-center text-white" style="font-size: 5rem; font-weight: bold;">
+                            GL
+                        </div>
+                    @endif
+                    <div class="position-absolute bottom-0 start-50 translate-middle-x bg-white rounded-pill px-4 py-3 shadow" style="min-width: 250px;">
+                        <p class="mb-0 fw-bold text-primary fs-6">M. GOGOLA LALA</p>
                         <p class="mb-0 small text-muted">Président CIMS</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-7">
-                <span class="badge bg-primary mb-3 px-3 py-2">Mot du Président</span>
+            <div class="col-lg-8">
+                <span class="badge bg-primary mb-3 px-3 py-2 fs-6">
+                    <i class="fas fa-quote-left me-2"></i>Mot du Président
+                </span>
                 <h2 class="section-title mb-4">Un Engagement pour Notre Développement</h2>
                 <div class="position-relative ps-4 border-start border-primary border-4">
                     <p class="fs-5 text-muted fst-italic mb-4">
                         "Chers membres, chers partenaires, chers amis du développement,"
                     </p>
-                    <p class="mb-3">
+                    <p class="mb-3 text-muted">
                         C'est avec un immense honneur et une profonde reconnaissance que je m'adresse à vous en tant que Président du Cercle des Ingénieurs de Mayo-Sava. Notre association, guidée par les valeurs de <strong>Solidarité, Développement et Unité</strong>, s'est donnée pour mission de contribuer activement à l'émergence de notre département.
                     </p>
-                    <p class="mb-3">
+                    <p class="mb-3 text-muted">
                         Ensemble, nous mettons notre expertise d'ingénieurs au service des communautés de Mayo-Sava. Que ce soit dans les domaines de l'eau et l'assainissement, de l'énergie, de l'agriculture ou de l'environnement, notre engagement reste inébranlable.
                     </p>
-                    <p class="mb-4">
+                    <p class="mb-4 text-muted">
                         Je vous invite tous à vous joindre à nous dans cette noble mission de bâtir un Mayo-Sava prospère, résilient et durable pour les générations présentes et futures.
                     </p>
-                    <p class="mb-0 fw-bold">
-                        Ensemble, construisons l'avenir !
+                    <p class="mb-0 fw-bold text-primary fs-5">
+                        <i class="fas fa-heart me-2"></i>Ensemble, construisons l'avenir !
                     </p>
                 </div>
             </div>
@@ -297,15 +368,4 @@
         </div>
     </div>
 </div>
-
-@section('styles')
-<style>
-    .card:hover .position-absolute {
-        opacity: 1 !important;
-    }
-    .card:hover img {
-        transform: scale(1.1);
-    }
-</style>
-@endsection
 @endsection

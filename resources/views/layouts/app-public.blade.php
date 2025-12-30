@@ -36,7 +36,7 @@
             background-color: rgba(255, 255, 255, 0.98) !important;
             backdrop-filter: blur(10px);
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             border-bottom: 1px solid var(--border-color);
         }
 
@@ -44,14 +44,29 @@
             display: flex;
             align-items: center;
             font-weight: 700;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: var(--primary-color) !important;
-            gap: 12px;
+            gap: 10px;
+            padding: 0.5rem 0;
         }
 
         .navbar-brand img {
-            height: 45px;
+            height: 50px;
             width: auto;
+            object-fit: contain;
+        }
+
+        .navbar-toggler {
+            border: 2px solid var(--primary-color);
+            padding: 0.5rem 0.75rem;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(37, 99, 235, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
 
         .nav-link {
@@ -244,10 +259,10 @@
 </head>
 <body>
     <!-- Navbar moderne -->
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <nav class="navbar navbar-expand-lg">
         <div class="main-container">
             <div class="container-fluid px-0">
-                <a class="navbar-brand" href="{{ route('home') }}">
+                <a class="navbar-brand order-1" href="{{ route('home') }}">
                     @if(file_exists(public_path('images/logo-cims.png')))
                         <img src="{{ asset('images/logo-cims.png') }}" alt="CIMS Logo">
                     @else
@@ -255,10 +270,10 @@
                     @endif
                     <span>CIMS</span>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <button class="navbar-toggler order-3 order-lg-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="collapse navbar-collapse order-2 order-lg-3" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">
