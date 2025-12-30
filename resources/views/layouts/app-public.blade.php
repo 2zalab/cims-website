@@ -260,7 +260,7 @@
 <body>
     <!-- Navbar moderne -->
     <nav class="navbar navbar-expand-lg">
-        <div class="main-container d-flex flex-wrap align-items-center">
+        <div class="main-container d-flex flex-wrap align-items-center justify-content-between">
             <a class="navbar-brand" href="{{ route('home') }}">
                 @if(file_exists(public_path('images/logo-cims.png')))
                     <img src="{{ asset('images/logo-cims.png') }}" alt="CIMS Logo">
@@ -269,7 +269,7 @@
                 @endif
                 <span>CIMS</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
