@@ -10,12 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2563eb;
+            --primary-color: #d97706;
             --secondary-color: #10b981;
-            --accent-color: #f59e0b;
+            --accent-color: #b45309;
             --dark-color: #1e293b;
             --light-gray: #f8fafc;
             --border-color: #e2e8f0;
+            --gold-dark: #b45309;
+            --green: #10b981;
         }
 
         * {
@@ -57,16 +59,16 @@
         }
 
         .navbar-toggler {
-            border: 2px solid var(--primary-color);
+            border: 2px solid var(--gold-dark);
             padding: 0.5rem 0.75rem;
         }
 
         .navbar-toggler:focus {
-            box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
+            box-shadow: 0 0 0 0.2rem rgba(180, 83, 9, 0.25);
         }
 
         .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(37, 99, 235, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(180, 83, 9, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
 
         .nav-link {
@@ -81,12 +83,12 @@
 
         .nav-link:hover {
             background-color: var(--light-gray);
-            color: var(--primary-color) !important;
+            color: var(--gold-dark) !important;
         }
 
         .nav-link.active {
             background-color: var(--light-gray);
-            color: var(--primary-color) !important;
+            color: var(--gold-dark) !important;
         }
 
         /* Container 90% */
@@ -106,33 +108,33 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #1d4ed8 100%);
+            background: linear-gradient(135deg, var(--gold-dark) 0%, #92400e 100%);
             color: white;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 10px 20px rgba(180, 83, 9, 0.4);
         }
 
         .btn-success {
-            background: linear-gradient(135deg, var(--secondary-color) 0%, #059669 100%);
+            background: linear-gradient(135deg, var(--green) 0%, #059669 100%);
             color: white;
         }
 
         .btn-success:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);
         }
 
         .btn-outline-primary {
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
+            border: 2px solid var(--gold-dark);
+            color: var(--gold-dark);
             background: transparent;
         }
 
         .btn-outline-primary:hover {
-            background: var(--primary-color);
+            background: var(--gold-dark);
             color: white;
             transform: translateY(-2px);
         }
@@ -149,7 +151,7 @@
         .card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border-color: var(--primary-color);
+            border-color: var(--gold-dark);
         }
 
         .card-img-top {
@@ -162,11 +164,30 @@
 
         /* Hero Section */
         .hero-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--green) 100%);
             color: #fff;
             padding: 100px 0 80px;
             position: relative;
             overflow: hidden;
+        }
+
+        .hero-section.with-bg-image {
+            background-image: url('{{ asset("images/hero.png") }}');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-section.with-bg-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(180, 83, 9, 0.85) 0%, rgba(16, 185, 129, 0.85) 100%);
+            backdrop-filter: blur(3px);
+            z-index: 1;
         }
 
         .hero-section::before {
@@ -178,6 +199,12 @@
             bottom: 0;
             background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect fill="rgba(255,255,255,0.03)" width="50" height="50"/></svg>');
             opacity: 0.5;
+            z-index: 1;
+        }
+
+        .hero-section > * {
+            position: relative;
+            z-index: 2;
         }
 
         /* Footer */
@@ -195,7 +222,7 @@
         }
 
         footer a:hover {
-            color: var(--secondary-color);
+            color: var(--green);
         }
 
         /* Sections */

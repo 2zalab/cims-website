@@ -6,7 +6,7 @@
 <style>
     .hero-section {
         position: relative;
-        background-image: url('{{ asset("images/hero-bg.jpg") }}');
+        background-image: url('{{ asset("images/hero.png") }}');
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -19,13 +19,19 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+        background: linear-gradient(135deg, rgba(180, 83, 9, 0.85) 0%, rgba(16, 185, 129, 0.85) 100%);
         backdrop-filter: blur(3px);
+        z-index: 1;
     }
 
     /* Si pas d'image, utiliser un fond par défaut */
     .hero-section.no-bg {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #b45309 0%, #10b981 100%);
+    }
+
+    .hero-section > * {
+        position: relative;
+        z-index: 2;
     }
 
     .president-photo {
@@ -60,8 +66,8 @@
 
 @section('content')
 <!-- Hero Section with Background -->
-<div class="hero-section text-center {{ !file_exists(public_path('images/hero-bg.jpg')) ? 'no-bg' : '' }}">
-    <div class="main-container position-relative" style="z-index: 1; padding: 50px 0 80px;">
+<div class="hero-section text-center {{ !file_exists(public_path('images/hero.png')) ? 'no-bg' : '' }}">
+    <div class="main-container position-relative" style="z-index: 2; padding: 50px 0 80px;">
         <h1 class="display-3 fw-bold mb-4 fade-in-up">Cercle des Ingénieurs de Mayo-Sava</h1>
         <p class="lead mb-2 fs-3 fw-semibold">Solidarité - Développement - Unité</p>
         <p class="mb-5 fs-5" style="max-width: 700px; margin: 0 auto;">

@@ -4,11 +4,11 @@
 
 @section('content')
 <!-- Hero Section -->
-<div class="hero-section text-center py-5">
-    <div class="main-container position-relative" style="z-index: 1;">
+<div class="hero-section with-bg-image text-center py-5">
+    <div class="main-container position-relative" style="z-index: 2;">
         <h1 class="display-4 fw-bold mb-3">À Propos du CIMS</h1>
         <p class="lead fs-4">Cercle des Ingénieurs de Mayo-Sava</p>
-        <p class="fw-bold text-warning fs-5 mt-3">Solidarité - Développement - Unité</p>
+        <p class="fw-bold fs-5 mt-3" style="color: #fbbf24;">Solidarité - Développement - Unité</p>
     </div>
 </div>
 

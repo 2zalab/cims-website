@@ -3,8 +3,8 @@
 @section('title', 'Actualités - CIMS')
 
 @section('content')
-<div class="hero-section text-center py-5">
-    <div class="main-container position-relative" style="z-index: 1;">
+<div class="hero-section with-bg-image text-center py-5">
+    <div class="main-container position-relative" style="z-index: 2;">
         <h1 class="display-4 fw-bold mb-3">Actualités</h1>
         <p class="lead fs-5">Restez informés de nos dernières nouvelles et événements</p>
     </div>
