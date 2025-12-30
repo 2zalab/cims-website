@@ -74,7 +74,6 @@
         .sidebar-header .logo-container img {
             height: 60px;
             width: auto;
-            filter: brightness(0) invert(1);
         }
 
         .sidebar-header .logo-container i {
