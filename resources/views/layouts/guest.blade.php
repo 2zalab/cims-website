@@ -10,8 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #10b981;
+            --primary-color: #d97706;
+            --gold-dark: #b45309;
+            --green: #10b981;
             --dark-color: #1e293b;
         }
 
@@ -34,7 +35,6 @@
         /* Left Side - Image/Branding */
         .login-left {
             flex: 1;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             position: relative;
             display: flex;
             flex-direction: column;
@@ -43,6 +43,9 @@
             padding: 60px;
             color: white;
             overflow: hidden;
+            background-image: url('{{ asset("images/hero-bg.jpg") }}');
+            background-size: cover;
+            background-position: center;
         }
 
         .login-left::before {
@@ -52,8 +55,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect fill="rgba(255,255,255,0.03)" width="50" height="50"/></svg>');
-            opacity: 0.3;
+            background: linear-gradient(135deg, rgba(180, 83, 9, 0.9) 0%, rgba(16, 185, 129, 0.9) 100%);
+            backdrop-filter: blur(8px);
         }
 
         .login-left-content {
@@ -96,7 +99,7 @@
         .login-left-content .tagline {
             font-size: 1.2rem;
             font-weight: 600;
-            color: #fbbf24;
+            color: #fef3c7;
             margin-top: 30px;
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
@@ -155,8 +158,8 @@
         }
 
         .form-control:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+            border-color: var(--gold-dark);
+            box-shadow: 0 0 0 4px rgba(180, 83, 9, 0.1);
             outline: none;
         }
 
@@ -189,8 +192,8 @@
         }
 
         .form-check-input:checked {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
+            background-color: var(--gold-dark);
+            border-color: var(--gold-dark);
         }
 
         .form-check-label {
@@ -202,7 +205,7 @@
         .btn-login {
             width: 100%;
             padding: 14px;
-            background: linear-gradient(135deg, var(--primary-color) 0%, #1d4ed8 100%);
+            background: linear-gradient(135deg, var(--gold-dark) 0%, #92400e 100%);
             color: white;
             border: none;
             border-radius: 10px;
@@ -214,7 +217,7 @@
 
         .btn-login:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 10px 25px rgba(180, 83, 9, 0.4);
         }
 
         .btn-login:active {
@@ -227,7 +230,7 @@
         }
 
         .forgot-password a {
-            color: var(--primary-color);
+            color: var(--gold-dark);
             text-decoration: none;
             font-weight: 500;
             font-size: 0.95rem;
@@ -235,7 +238,7 @@
         }
 
         .forgot-password a:hover {
-            color: #1d4ed8;
+            color: var(--green);
             text-decoration: underline;
         }
 
@@ -269,7 +272,7 @@
         }
 
         .back-home a:hover {
-            color: var(--primary-color);
+            color: var(--gold-dark);
         }
 
         /* Responsive */
