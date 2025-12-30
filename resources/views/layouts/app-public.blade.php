@@ -261,59 +261,57 @@
     <!-- Navbar moderne -->
     <nav class="navbar navbar-expand-lg">
         <div class="main-container">
-            <div class="container-fluid px-0">
-                <a class="navbar-brand order-1" href="{{ route('home') }}">
-                    @if(file_exists(public_path('images/logo-cims.png')))
-                        <img src="{{ asset('images/logo-cims.png') }}" alt="CIMS Logo">
-                    @else
-                        <i class="fas fa-cogs"></i>
-                    @endif
-                    <span>CIMS</span>
-                </a>
-                <button class="navbar-toggler order-3 order-lg-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse order-2 order-lg-3" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">
-                                <i class="fas fa-home"></i> Accueil
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">
-                                <i class="fas fa-info-circle"></i> À Propos
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('activities.*') ? 'active' : '' }}" href="{{ route('activities.index') }}">
-                                <i class="fas fa-calendar-alt"></i> Activités
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('news.*') ? 'active' : '' }}" href="{{ route('news.index') }}">
-                                <i class="fas fa-newspaper"></i> Actualités
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('gallery.*') ? 'active' : '' }}" href="{{ route('gallery.index') }}">
-                                <i class="fas fa-images"></i> Galerie
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('contact.*') ? 'active' : '' }}" href="{{ route('contact.index') }}">
-                                <i class="fas fa-envelope"></i> Contact
-                            </a>
-                        </li>
-                        @auth
-                        <li class="nav-item">
-                            <a class="btn btn-success btn-sm ms-2" href="{{ route('admin.dashboard') }}">
-                                <i class="fas fa-tachometer-alt"></i> Admin
-                            </a>
-                        </li>
-                        @endauth
-                    </ul>
-                </div>
+            <a class="navbar-brand" href="{{ route('home') }}">
+                @if(file_exists(public_path('images/logo-cims.png')))
+                    <img src="{{ asset('images/logo-cims.png') }}" alt="CIMS Logo">
+                @else
+                    <i class="fas fa-cogs"></i>
+                @endif
+                <span>CIMS</span>
+            </a>
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">
+                            <i class="fas fa-home"></i> Accueil
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">
+                            <i class="fas fa-info-circle"></i> À Propos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('activities.*') ? 'active' : '' }}" href="{{ route('activities.index') }}">
+                            <i class="fas fa-calendar-alt"></i> Activités
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('news.*') ? 'active' : '' }}" href="{{ route('news.index') }}">
+                            <i class="fas fa-newspaper"></i> Actualités
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('gallery.*') ? 'active' : '' }}" href="{{ route('gallery.index') }}">
+                            <i class="fas fa-images"></i> Galerie
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('contact.*') ? 'active' : '' }}" href="{{ route('contact.index') }}">
+                            <i class="fas fa-envelope"></i> Contact
+                        </a>
+                    </li>
+                    @auth
+                    <li class="nav-item">
+                        <a class="btn btn-success btn-sm ms-2" href="{{ route('admin.dashboard') }}">
+                            <i class="fas fa-tachometer-alt"></i> Admin
+                        </a>
+                    </li>
+                    @endauth
+                </ul>
             </div>
         </div>
     </nav>
