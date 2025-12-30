@@ -61,6 +61,42 @@
         font-weight: 700;
         margin-bottom: 0.5rem;
     }
+
+    /* Override Bootstrap colors avec or et vert */
+    .text-primary {
+        color: #d97706 !important;
+    }
+
+    .bg-primary {
+        background-color: #d97706 !important;
+    }
+
+    .badge.bg-primary {
+        background-color: #d97706 !important;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #b45309 0%, #92400e 100%) !important;
+    }
+
+    .btn-outline-primary {
+        border-color: #d97706 !important;
+        color: #d97706 !important;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: #d97706 !important;
+        color: white !important;
+    }
+
+    .stat-icon.text-primary,
+    .text-primary i {
+        color: #d97706 !important;
+    }
+
+    .bg-gradient-placeholder {
+        background: linear-gradient(135deg, #b45309 0%, #10b981 100%) !important;
+    }
 </style>
 @endsection
 
@@ -248,7 +284,7 @@
                         <img src="{{ asset('storage/' . $activity->image) }}" class="card-img-top" alt="{{ $activity->title }}" style="height: 100%; width: 100%; object-fit: cover;">
                     </div>
                     @else
-                    <div class="bg-gradient d-flex align-items-center justify-content-center" style="height: 220px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div class="bg-gradient d-flex align-items-center justify-content-center" style="height: 220px; background: linear-gradient(135deg, #b45309 0%, #10b981 100%);">
                         <i class="fas fa-image fa-4x text-white opacity-50"></i>
                     </div>
                     @endif
@@ -364,7 +400,7 @@
 
 <!-- Call to Action -->
 <div class="main-container section">
-    <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px;">
+    <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, #b45309 0%, #10b981 100%); border-radius: 20px;">
         <div class="card-body p-5 text-center text-white">
             <h2 class="display-5 fw-bold mb-4">Rejoignez-nous dans notre mission !</h2>
             <p class="lead mb-4">Ensemble, construisons un Mayo-Sava prospère et durable</p>

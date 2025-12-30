@@ -11,7 +11,7 @@
     <style>
         :root {
             --sidebar-width: 280px;
-            --primary-color: #2563eb;
+            --primary-color: #d97706;
             --secondary-color: #10b981;
             --danger-color: #ef4444;
             --warning-color: #f59e0b;
@@ -19,6 +19,8 @@
             --sidebar-bg: #1e293b;
             --sidebar-hover: #334155;
             --topbar-height: 70px;
+            --gold-dark: #b45309;
+            --green: #10b981;
         }
 
         * {
@@ -78,7 +80,7 @@
 
         .sidebar-header .logo-container i {
             font-size: 50px;
-            color: var(--primary-color);
+            color: var(--gold-dark);
         }
 
         .sidebar-header h4 {
@@ -124,9 +126,9 @@
         }
 
         .sidebar-nav .nav-link.active {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #1d4ed8 100%);
+            background: linear-gradient(135deg, var(--gold-dark) 0%, #92400e 100%);
             color: #fff;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 4px 12px rgba(180, 83, 9, 0.4);
         }
 
         .sidebar-divider {
@@ -178,7 +180,7 @@
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-color) 0%, #1d4ed8 100%);
+            background: linear-gradient(135deg, var(--gold-dark) 0%, #92400e 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -283,7 +285,7 @@
         }
 
         .stat-card-primary {
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            background: linear-gradient(135deg, var(--gold-dark) 0%, #92400e 100%);
         }
 
         .stat-card-success {
@@ -307,23 +309,23 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #1d4ed8 100%);
+            background: linear-gradient(135deg, var(--gold-dark) 0%, #92400e 100%);
             border: none;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 6px 15px rgba(180, 83, 9, 0.4);
         }
 
         .btn-success {
-            background: linear-gradient(135deg, var(--secondary-color) 0%, #059669 100%);
+            background: linear-gradient(135deg, var(--green) 0%, #059669 100%);
             border: none;
         }
 
         .btn-success:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 6px 15px rgba(16, 185, 129, 0.4);
         }
 
         .btn-danger {
