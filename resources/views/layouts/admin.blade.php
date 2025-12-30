@@ -480,6 +480,10 @@
                 <i class="fas fa-handshake"></i>
                 <span>Partenaires</span>
             </a>
+            <a class="nav-link {{ request()->routeIs('admin.members.*') ? 'active' : '' }}" href="{{ route('admin.members.index') }}">
+                <i class="fas fa-users"></i>
+                <span>Membres</span>
+            </a>
 
             <hr class="sidebar-divider">
 
