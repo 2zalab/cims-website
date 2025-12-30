@@ -4,106 +4,219 @@
 @section('page-title', 'Dashboard')
 
 @section('content')
-<div class="row mb-4">
-    <div class="col-md-3 mb-3">
-        <div class="card text-white bg-primary">
-            <div class="card-body">
-                <h5 class="card-title"><i class="fas fa-calendar"></i> Activités</h5>
+<!-- Stats Cards -->
+<div class="row g-4 mb-4">
+    <div class="col-xl-3 col-md-6">
+        <div class="stat-card stat-card-primary">
+            <div class="stat-content">
+                <h6>Activités</h6>
                 <h2>{{ $stats['activities'] }}</h2>
             </div>
+            <div class="stat-icon">
+                <i class="fas fa-calendar-alt"></i>
+            </div>
         </div>
     </div>
-    <div class="col-md-3 mb-3">
-        <div class="card text-white bg-success">
-            <div class="card-body">
-                <h5 class="card-title"><i class="fas fa-newspaper"></i> Actualités</h5>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="stat-card stat-card-success">
+            <div class="stat-content">
+                <h6>Actualités</h6>
                 <h2>{{ $stats['news'] }}</h2>
             </div>
-        </div>
-    </div>
-    <div class="col-md-3 mb-3">
-        <div class="card text-white bg-warning">
-            <div class="card-body">
-                <h5 class="card-title"><i class="fas fa-images"></i> Photos</h5>
-                <h2>{{ $stats['galleries'] }}</h2>
+            <div class="stat-icon">
+                <i class="fas fa-newspaper"></i>
             </div>
         </div>
     </div>
-    <div class="col-md-3 mb-3">
-        <div class="card text-white bg-danger">
-            <div class="card-body">
-                <h5 class="card-title"><i class="fas fa-envelope"></i> Messages non lus</h5>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="stat-card stat-card-warning">
+            <div class="stat-content">
+                <h6>Photos</h6>
+                <h2>{{ $stats['galleries'] }}</h2>
+            </div>
+            <div class="stat-icon">
+                <i class="fas fa-images"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="stat-card stat-card-danger">
+            <div class="stat-content">
+                <h6>Messages non lus</h6>
                 <h2>{{ $stats['contacts'] }}</h2>
+            </div>
+            <div class="stat-icon">
+                <i class="fas fa-envelope"></i>
             </div>
         </div>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-6 mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-calendar"></i> Dernières Activités</h5>
+<!-- Recent Content -->
+<div class="row g-4">
+    <!-- Recent Activities -->
+    <div class="col-lg-6">
+        <div class="card h-100">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">
+                    <i class="fas fa-calendar-alt text-primary me-2"></i>
+                    Dernières Activités
+                </h5>
+                <a href="{{ route('admin.activities.index') }}" class="btn btn-sm btn-outline-primary">
+                    Voir tout
+                </a>
             </div>
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-sm">
-                        <thead>
-                            <tr>
-                                <th>Titre</th>
-                                <th>Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse($recentActivities as $activity)
-                            <tr>
-                                <td>{{ Str::limit($activity->title, 30) }}</td>
-                                <td>{{ $activity->activity_date ? $activity->activity_date->format('d/m/Y') : '-' }}</td>
-                            </tr>
-                            @empty
-                            <tr>
-                                <td colspan="2" class="text-center text-muted">Aucune activité</td>
-                            </tr>
-                            @endforelse
-                        </tbody>
-                    </table>
-                </div>
-                <a href="{{ route('admin.activities.index') }}" class="btn btn-sm btn-primary">Voir tout</a>
+                @forelse($recentActivities as $activity)
+                    <div class="d-flex align-items-center mb-3 pb-3 @if(!$loop->last) border-bottom @endif">
+                        <div class="flex-shrink-0 me-3">
+                            <div class="rounded-circle bg-primary bg-opacity-10 p-3">
+                                <i class="fas fa-calendar-check text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="flex-grow-1">
+                            <h6 class="mb-1">{{ Str::limit($activity->title, 40) }}</h6>
+                            <small class="text-muted">
+                                <i class="fas fa-clock me-1"></i>
+                                {{ $activity->activity_date ? $activity->activity_date->format('d/m/Y') : 'Non planifié' }}
+                            </small>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <a href="{{ route('admin.activities.edit', $activity) }}" class="btn btn-sm btn-outline-secondary">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </div>
+                    </div>
+                @empty
+                    <div class="text-center py-5">
+                        <i class="fas fa-calendar-times fa-3x text-muted mb-3"></i>
+                        <p class="text-muted">Aucune activité enregistrée</p>
+                        <a href="{{ route('admin.activities.create') }}" class="btn btn-primary">
+                            <i class="fas fa-plus me-2"></i>Créer une activité
+                        </a>
+                    </div>
+                @endforelse
             </div>
         </div>
     </div>
 
-    <div class="col-md-6 mb-4">
+    <!-- Recent News -->
+    <div class="col-lg-6">
+        <div class="card h-100">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">
+                    <i class="fas fa-newspaper text-success me-2"></i>
+                    Dernières Actualités
+                </h5>
+                <a href="{{ route('admin.news.index') }}" class="btn btn-sm btn-outline-success">
+                    Voir tout
+                </a>
+            </div>
+            <div class="card-body">
+                @forelse($recentNews as $news)
+                    <div class="d-flex align-items-center mb-3 pb-3 @if(!$loop->last) border-bottom @endif">
+                        <div class="flex-shrink-0 me-3">
+                            <div class="rounded-circle bg-success bg-opacity-10 p-3">
+                                <i class="fas fa-newspaper text-success"></i>
+                            </div>
+                        </div>
+                        <div class="flex-grow-1">
+                            <h6 class="mb-1">{{ Str::limit($news->title, 40) }}</h6>
+                            <small class="text-muted">
+                                <i class="fas fa-clock me-1"></i>
+                                {{ $news->created_at->format('d/m/Y') }}
+                            </small>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <a href="{{ route('admin.news.edit', $news) }}" class="btn btn-sm btn-outline-secondary">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </div>
+                    </div>
+                @empty
+                    <div class="text-center py-5">
+                        <i class="fas fa-newspaper fa-3x text-muted mb-3"></i>
+                        <p class="text-muted">Aucune actualité publiée</p>
+                        <a href="{{ route('admin.news.create') }}" class="btn btn-success">
+                            <i class="fas fa-plus me-2"></i>Créer une actualité
+                        </a>
+                    </div>
+                @endforelse
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Messages -->
+<div class="row g-4 mt-2">
+    <div class="col-12">
         <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-envelope"></i> Messages Récents</h5>
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">
+                    <i class="fas fa-envelope text-danger me-2"></i>
+                    Messages Récents
+                </h5>
+                <a href="{{ route('admin.contacts.index') }}" class="btn btn-sm btn-outline-danger">
+                    Voir tout
+                </a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-sm">
+                    <table class="table table-hover align-middle">
                         <thead>
                             <tr>
+                                <th style="width: 50px;"></th>
                                 <th>Nom</th>
                                 <th>Email</th>
+                                <th>Sujet</th>
                                 <th>Date</th>
+                                <th style="width: 100px;">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse($recentContacts as $contact)
-                            <tr class="{{ !$contact->is_read ? 'fw-bold' : '' }}">
-                                <td>{{ Str::limit($contact->name, 20) }}</td>
-                                <td>{{ Str::limit($contact->email, 25) }}</td>
-                                <td>{{ $contact->created_at->format('d/m/Y') }}</td>
-                            </tr>
+                                <tr class="{{ !$contact->is_read ? 'table-warning' : '' }}">
+                                    <td class="text-center">
+                                        @if(!$contact->is_read)
+                                            <span class="badge bg-danger rounded-pill">
+                                                <i class="fas fa-exclamation"></i>
+                                            </span>
+                                        @else
+                                            <i class="fas fa-check-circle text-success"></i>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <strong>{{ $contact->name }}</strong>
+                                    </td>
+                                    <td>
+                                        <small class="text-muted">{{ $contact->email }}</small>
+                                    </td>
+                                    <td>
+                                        {{ Str::limit($contact->subject ?? 'Sans sujet', 40) }}
+                                    </td>
+                                    <td>
+                                        <small>{{ $contact->created_at->format('d/m/Y H:i') }}</small>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('admin.contacts.show', $contact) }}" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                    </td>
+                                </tr>
                             @empty
-                            <tr>
-                                <td colspan="3" class="text-center text-muted">Aucun message</td>
-                            </tr>
+                                <tr>
+                                    <td colspan="6" class="text-center py-5">
+                                        <i class="fas fa-inbox fa-3x text-muted mb-3 d-block"></i>
+                                        <p class="text-muted">Aucun message reçu</p>
+                                    </td>
+                                </tr>
                             @endforelse
                         </tbody>
                     </table>
                 </div>
-                <a href="{{ route('admin.contacts.index') }}" class="btn btn-sm btn-primary">Voir tout</a>
             </div>
         </div>
     </div>
