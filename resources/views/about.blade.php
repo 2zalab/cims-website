@@ -76,7 +76,7 @@
 </div>
 
 <!-- Vision & Mission -->
-<div class="bg-light py-5">
+<div class="bg-light py-2">
     <div class="main-container">
         <div class="row g-4">
             <div class="col-lg-6">
@@ -180,7 +180,7 @@
 </div>
 
 <!-- Domaines d'Intervention -->
-<div class="bg-light py-5">
+<div class="bg-light py-2">
     <div class="main-container">
         <div class="text-center mb-5">
             <h2 class="section-title">Nos Domaines d'Intervention</h2>
@@ -334,7 +334,7 @@
 </div>
 
 <!-- Call to Action -->
-<div class="bg-light py-5">
+<div class="bg-light py-2">
     <div class="main-container">
         <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, #b45309 0%, #10b981 100%); border-radius: 20px;">
             <div class="card-body p-5 text-center text-white">

@@ -84,7 +84,7 @@
 </div>
 
 <!-- Members List -->
-<div class="main-container section">
+<div class="bg-light py-4 section px-4">
     @if(request()->hasAny(['search', 'speciality', 'arrondissement', 'village']))
     <div class="alert alert-info">
         <i class="fas fa-info-circle me-2"></i>

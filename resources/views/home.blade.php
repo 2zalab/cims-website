@@ -179,7 +179,7 @@
 </div>
 
 <!-- Mot du Président -->
-<div class="bg-light py-5">
+<div class="bg-light py-2">
     <div class="main-container">
         <div class="row align-items-center g-5">
             <div class="col-lg-4 text-center">
@@ -226,7 +226,7 @@
 </div>
 
 <!-- Mission & Vision -->
-<div class="main-container section">
+<div class="section px-4">
     <div class="text-center mb-5">
         <h2 class="section-title">Notre Mission</h2>
         <p class="section-subtitle">Contribuer au développement durable de Mayo-Sava</p>
@@ -269,7 +269,7 @@
 </div>
 
 <!-- Activités Récentes -->
-<div class="bg-light py-2">
+<div class="bg-light py-0">
     <div class="main-container">
         <div class="text-center mb-5">
             <h2 class="section-title">Nos Dernières Activités</h2>
@@ -371,7 +371,7 @@
 
 <!-- Galerie Aperçu -->
 @if($galleries->count() > 0)
-<div class="bg-light py-2">
+<div class="bg-light section py-2">
     <div class="main-container">
         <div class="text-center mb-5">
             <h2 class="section-title">Galerie Photos</h2>
@@ -400,7 +400,7 @@
 
 <!-- Call to Action -->
 <div class="main-container section">
-    <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, #b45309 0%, #10b981 100%); border-radius: 20px;">
+    <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, #b45309 0%, #10b981 100%); border-radius: 10px;">
         <div class="card-body p-5 text-center text-white">
             <h2 class="display-5 fw-bold mb-4">Rejoignez-nous dans notre mission !</h2>
             <p class="lead mb-4">Ensemble, construisons un Mayo-Sava prospère et durable</p>

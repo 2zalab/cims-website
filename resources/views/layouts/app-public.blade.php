@@ -73,11 +73,11 @@
 
         .nav-link {
             color: var(--dark-color) !important;
-            margin: 0 8px;
-            padding: 8px 16px !important;
-            border-radius: 8px;
+            margin: 0 4px;
+            padding: 8px 12px !important;
+            border-radius: 0px;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
         }
 
@@ -93,7 +93,7 @@
 
         /* Container 90% */
         .main-container {
-            width: 90%;
+            width: 95%;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -326,7 +326,7 @@
                 @else
                     <i class="fas fa-cogs"></i>
                 @endif
-                <span>CIMS</span>
+                <!--span>CIMS</span-->
             </a>
             <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>

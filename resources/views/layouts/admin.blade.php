@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --sidebar-width: 280px;
+            --sidebar-width: 260px;
             --primary-color: #d97706;
             --secondary-color: #10b981;
             --danger-color: #ef4444;
@@ -51,7 +51,7 @@
         }
 
         .sidebar::-webkit-scrollbar {
-            width: 6px;
+            width: 3px;
         }
 
         .sidebar::-webkit-scrollbar-track {
@@ -64,7 +64,7 @@
         }
 
         .sidebar-header {
-            padding: 25px 20px;
+            padding: 15px 0px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
         }
@@ -84,7 +84,7 @@
         }
 
         .sidebar-header h4 {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 700;
             margin: 0;
             color: white;
@@ -102,8 +102,8 @@
 
         .sidebar-nav .nav-link {
             color: rgba(255, 255, 255, 0.8);
-            padding: 14px 20px;
-            margin: 4px 12px;
+            padding: 10px 10px;
+            margin: 4px 10px;
             border-radius: 10px;
             font-weight: 500;
             font-size: 0.95rem;
@@ -114,7 +114,7 @@
         }
 
         .sidebar-nav .nav-link i {
-            width: 24px;
+            width: 20px;
             margin-right: 12px;
             font-size: 1.1rem;
         }

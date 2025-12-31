@@ -22,7 +22,7 @@
             @endif
 
             <div class="card border-0 shadow-sm">
-                <div class="card-body p-5">
+                <div class="card-body p-3">
                     <h2 class="mb-4">Envoyez-nous un message</h2>
                     <form action="{{ route('contact.store') }}" method="POST">
                         @csrf
@@ -107,7 +107,7 @@
                 </div>
             </div>
 
-            <div class="card border-0 shadow-sm" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div class="card border-0 shadow-sm" style="background: linear-gradient(135deg, #10b981 0%, #10b981 80%);">
                 <div class="card-body p-4 text-white">
                     <h5 class="mb-3">Horaires d'ouverture</h5>
                     <div class="d-flex justify-content-between mb-2">

@@ -55,8 +55,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(180, 83, 9, 0.9) 0%, rgba(16, 185, 129, 0.9) 100%);
-            backdrop-filter: blur(8px);
+            background: linear-gradient(135deg, rgba(180, 83, 9, 0) 0%, rgba(16, 185, 129, 0.9) 100%);
+            backdrop-filter: blur(0px);
         }
 
         .login-left-content {
@@ -316,7 +316,7 @@
         <div class="login-left">
             <div class="login-left-content">
                 <div class="logo-container">
-                    @if(file_exists(public_path('images/logo-cims.png')))
+                    @if(file_exists(public_path('images/logo1-cims.png')))
                         <img src="{{ asset('images/logo-cims.png') }}" alt="CIMS Logo">
                     @else
                         <i class="fas fa-cogs"></i>
