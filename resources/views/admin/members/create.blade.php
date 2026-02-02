@@ -38,6 +38,19 @@
                 </div>
             </div>
 
+            <div class="mb-3">
+                <label for="fonction" class="form-label">Fonction <span class="text-danger">*</span></label>
+                <select class="form-select @error('fonction') is-invalid @enderror"
+                        id="fonction" name="fonction" required>
+                    @foreach(\App\Models\Member::FONCTIONS as $key => $label)
+                        <option value="{{ $key }}" {{ old('fonction', 'membre') == $key ? 'selected' : '' }}>{{ $label }}</option>
+                    @endforeach
+                </select>
+                @error('fonction')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="email" class="form-label">Email <span class="text-danger">*</span></label>

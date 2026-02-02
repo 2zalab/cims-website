@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activity;
+use App\Models\Member;
 use App\Models\News;
 use App\Models\Gallery;
 use App\Models\Partner;
@@ -31,6 +32,9 @@ class HomeController extends Controller
             ->orderBy('order')
             ->get();
 
-        return view('home', compact('activities', 'news', 'galleries', 'partners'));
+        // Récupérer le président depuis la base de données
+        $president = Member::president()->first();
+
+        return view('home', compact('activities', 'news', 'galleries', 'partners', 'president'));
     }
 }

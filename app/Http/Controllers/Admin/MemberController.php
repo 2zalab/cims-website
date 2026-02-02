@@ -34,6 +34,7 @@ class MemberController extends Controller
         $validated = $request->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
+            'fonction' => 'required|string|in:' . implode(',', array_keys(Member::FONCTIONS)),
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'email' => 'required|email|max:255|unique:members,email',
             'phone' => 'nullable|string|max:20',
@@ -82,6 +83,7 @@ class MemberController extends Controller
         $validated = $request->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
+            'fonction' => 'required|string|in:' . implode(',', array_keys(Member::FONCTIONS)),
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'email' => 'required|email|max:255|unique:members,email,' . $member->id,
             'phone' => 'nullable|string|max:20',

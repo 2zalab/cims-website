@@ -19,6 +19,7 @@
                     <tr>
                         <th>Photo</th>
                         <th>Nom Complet</th>
+                        <th>Fonction</th>
                         <th>Email</th>
                         <th>Spécialité</th>
                         <th>Arrondissement</th>
@@ -45,6 +46,11 @@
                         </td>
                         <td>
                             <strong>{{ $member->full_name }}</strong>
+                        </td>
+                        <td>
+                            <span class="badge bg-{{ in_array($member->fonction, \App\Models\Member::FONCTIONS_BUREAU) ? 'primary' : 'secondary' }}">
+                                {{ $member->fonction_label }}
+                            </span>
                         </td>
                         <td>{{ $member->email }}</td>
                         <td>
@@ -84,7 +90,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="8" class="text-center py-5">
+                        <td colspan="9" class="text-center py-5">
                             <i class="fas fa-users fa-3x text-muted mb-3 d-block"></i>
                             <p class="text-muted">Aucun membre enregistré.</p>
                         </td>
