@@ -242,94 +242,63 @@
         <p class="section-subtitle">Une équipe dédiée au service du développement</p>
     </div>
     <div class="row g-4">
-        <!-- Président -->
-        <div class="col-lg-4 col-md-6">
-            <div class="card border-0 shadow-sm h-100 text-center">
-                <div class="card-body p-4">
-                    <div class="position-relative d-inline-block mb-3">
-                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width: 120px; height: 120px;">
-                            <i class="fas fa-user-tie fa-3x text-white"></i>
+        @php
+            // Définir les couleurs et icônes par fonction
+            $fonctionStyles = [
+                'president' => ['color' => 'primary', 'icon' => 'fa-user-tie', 'crown' => true],
+                'vice_president' => ['color' => 'success', 'icon' => 'fa-user-tie', 'crown' => false],
+                'secretaire_general' => ['color' => 'info', 'icon' => 'fa-user-edit', 'crown' => false],
+                'vice_secretaire' => ['color' => 'info', 'icon' => 'fa-user-edit', 'crown' => false],
+                'tresorier' => ['color' => 'warning', 'icon' => 'fa-coins', 'crown' => false],
+                'vice_tresorier' => ['color' => 'warning', 'icon' => 'fa-coins', 'crown' => false],
+                'censeur' => ['color' => 'danger', 'icon' => 'fa-search', 'crown' => false],
+                'vice_censeur' => ['color' => 'danger', 'icon' => 'fa-search', 'crown' => false],
+                'commissaire_compte' => ['color' => 'danger', 'icon' => 'fa-calculator', 'crown' => false],
+                'conseiller' => ['color' => 'secondary', 'icon' => 'fa-user-graduate', 'crown' => false],
+            ];
+        @endphp
+
+        @forelse($bureauMembers as $member)
+            @php
+                $style = $fonctionStyles[$member->fonction] ?? ['color' => 'secondary', 'icon' => 'fa-user', 'crown' => false];
+            @endphp
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100 text-center">
+                    <div class="card-body p-4">
+                        <div class="position-relative d-inline-block mb-3">
+                            @if($member->photo)
+                                <img src="{{ asset('storage/' . $member->photo) }}"
+                                     alt="{{ $member->full_name }}"
+                                     class="rounded-circle mx-auto"
+                                     style="width: 120px; height: 120px; object-fit: cover;">
+                            @else
+                                <div class="bg-{{ $style['color'] }} rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width: 120px; height: 120px;">
+                                    <i class="fas {{ $style['icon'] }} fa-3x text-white"></i>
+                                </div>
+                            @endif
+                            @if($style['crown'])
+                                <div class="position-absolute bottom-0 end-0 bg-warning rounded-circle d-flex align-items-center justify-content-center" style="width: 35px; height: 35px;">
+                                    <i class="fas fa-crown text-white"></i>
+                                </div>
+                            @endif
                         </div>
-                        <div class="position-absolute bottom-0 end-0 bg-warning rounded-circle d-flex align-items-center justify-content-center" style="width: 35px; height: 35px;">
-                            <i class="fas fa-crown text-white"></i>
-                        </div>
+                        <h5 class="fw-bold mb-1">{{ $member->full_name }}</h5>
+                        <p class="text-{{ $style['color'] }} fw-semibold mb-2">{{ $member->fonction_label }}</p>
+                        @if($member->speciality)
+                            <p class="text-muted small mb-2"><i class="fas fa-briefcase me-1"></i>{{ $member->speciality }}</p>
+                        @endif
+                        @if($member->bio)
+                            <p class="text-muted small">{{ Str::limit($member->bio, 100) }}</p>
+                        @endif
                     </div>
-                    <h5 class="fw-bold mb-1">M. GOGOLA LALA</h5>
-                    <p class="text-primary fw-semibold mb-2">Président</p>
-                    <p class="text-muted small">Leader visionnaire et ingénieur expérimenté, il guide l'association vers ses objectifs de développement.</p>
                 </div>
             </div>
-        </div>
-
-        <!-- Vice-Président -->
-        <div class="col-lg-4 col-md-6">
-            <div class="card border-0 shadow-sm h-100 text-center">
-                <div class="card-body p-4">
-                    <div class="bg-success rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 120px; height: 120px;">
-                        <i class="fas fa-user-tie fa-3x text-white"></i>
-                    </div>
-                    <h5 class="fw-bold mb-1">Vice-Président</h5>
-                    <p class="text-success fw-semibold mb-2">Vice-Président</p>
-                    <p class="text-muted small">Assiste le président dans ses fonctions et coordonne les activités opérationnelles.</p>
-                </div>
+        @empty
+            <div class="col-12 text-center py-5">
+                <i class="fas fa-users fa-4x text-muted mb-3"></i>
+                <p class="text-muted fs-5">Le bureau exécutif sera bientôt présenté.</p>
             </div>
-        </div>
-
-        <!-- Secrétaire Général -->
-        <div class="col-lg-4 col-md-6">
-            <div class="card border-0 shadow-sm h-100 text-center">
-                <div class="card-body p-4">
-                    <div class="bg-info rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 120px; height: 120px;">
-                        <i class="fas fa-user-edit fa-3x text-white"></i>
-                    </div>
-                    <h5 class="fw-bold mb-1">M. MEGUEWE YAKOUBA</h5>
-                    <p class="text-info fw-semibold mb-2">Secrétaire Général</p>
-                    <p class="text-muted small">Gère la correspondance, les archives et assure le suivi administratif de l'association.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Trésorière -->
-        <div class="col-lg-4 col-md-6">
-            <div class="card border-0 shadow-sm h-100 text-center">
-                <div class="card-body p-4">
-                    <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 120px; height: 120px;">
-                        <i class="fas fa-coins fa-3x text-white"></i>
-                    </div>
-                    <h5 class="fw-bold mb-1">Mme. LABANNE</h5>
-                    <p class="text-warning fw-semibold mb-2">Trésorière</p>
-                    <p class="text-muted small">Responsable de la gestion financière et du patrimoine de l'association.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Commissaire aux Comptes -->
-        <div class="col-lg-4 col-md-6">
-            <div class="card border-0 shadow-sm h-100 text-center">
-                <div class="card-body p-4">
-                    <div class="bg-danger rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 120px; height: 120px;">
-                        <i class="fas fa-calculator fa-3x text-white"></i>
-                    </div>
-                    <h5 class="fw-bold mb-1">Commissaire aux Comptes</h5>
-                    <p class="text-danger fw-semibold mb-2">Commissaire aux Comptes</p>
-                    <p class="text-muted small">Veille à la régularité des opérations financières et comptables.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Conseiller -->
-        <div class="col-lg-4 col-md-6">
-            <div class="card border-0 shadow-sm h-100 text-center">
-                <div class="card-body p-4">
-                    <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 120px; height: 120px;">
-                        <i class="fas fa-user-graduate fa-3x text-white"></i>
-                    </div>
-                    <h5 class="fw-bold mb-1">Conseiller</h5>
-                    <p class="text-secondary fw-semibold mb-2">Conseiller</p>
-                    <p class="text-muted small">Apporte conseils et orientations pour la bonne marche de l'association.</p>
-                </div>
-            </div>
-        </div>
+        @endforelse
     </div>
 </div>
 

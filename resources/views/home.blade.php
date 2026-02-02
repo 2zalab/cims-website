@@ -184,16 +184,22 @@
         <div class="row align-items-center g-5">
             <div class="col-lg-4 text-center">
                 <div class="position-relative d-inline-block">
-                    @if(file_exists(public_path('images/president.jpg')))
-                        <img src="{{ asset('images/president.jpg') }}" alt="M. GOGOLA LALA" class="president-photo">
+                    @if($president && $president->photo)
+                        <img src="{{ asset('storage/' . $president->photo) }}" alt="{{ $president->full_name }}" class="president-photo">
+                    @elseif(file_exists(public_path('images/president.jpg')))
+                        <img src="{{ asset('images/president.jpg') }}" alt="{{ $president ? $president->full_name : 'Président CIMS' }}" class="president-photo">
                     @else
                         <!-- Placeholder avec initiales -->
                         <div class="president-photo bg-primary d-flex align-items-center justify-content-center text-white" style="font-size: 5rem; font-weight: bold;">
-                            GL
+                            @if($president)
+                                {{ strtoupper(substr($president->first_name, 0, 1) . substr($president->last_name, 0, 1)) }}
+                            @else
+                                P
+                            @endif
                         </div>
                     @endif
                     <div class="position-absolute bottom-0 start-50 translate-middle-x bg-white rounded-pill px-4 py-3 shadow" style="min-width: 250px;">
-                        <p class="mb-0 fw-bold text-primary fs-6">M. GOGOLA LALA</p>
+                        <p class="mb-0 fw-bold text-primary fs-6">{{ $president ? $president->full_name : 'Président CIMS' }}</p>
                         <p class="mb-0 small text-muted">Président CIMS</p>
                     </div>
                 </div>
