@@ -7,6 +7,7 @@ use App\Models\Member;
 use App\Models\News;
 use App\Models\Gallery;
 use App\Models\Partner;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -32,9 +33,14 @@ class HomeController extends Controller
             ->orderBy('order')
             ->get();
 
+        $projects = Project::where('is_active', true)
+            ->latest()
+            ->take(3)
+            ->get();
+
         // Récupérer le président depuis la base de données
         $president = Member::president()->first();
 
-        return view('home', compact('activities', 'news', 'galleries', 'partners', 'president'));
+        return view('home', compact('activities', 'news', 'galleries', 'partners', 'projects', 'president'));
     }
 }

@@ -15,6 +15,8 @@ use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\Admin\PartnerController as AdminPartnerController;
 use App\Http\Controllers\Admin\MemberController as AdminMemberController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\ProjectPublicController;
+use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
 use Illuminate\Support\Facades\Route;
 
 // Routes publiques
@@ -29,6 +31,8 @@ Route::get('/contact', [ContactPublicController::class, 'index'])->name('contact
 Route::post('/contact', [ContactPublicController::class, 'store'])->name('contact.store');
 Route::get('/membres', [MemberController::class, 'index'])->name('members.index');
 Route::get('/membres/{member}', [MemberController::class, 'show'])->name('members.show');
+Route::get('/projets', [ProjectPublicController::class, 'index'])->name('projects.index');
+Route::get('/projets/{project}', [ProjectPublicController::class, 'show'])->name('projects.show');
 
 // Routes d'administration (protégées par authentification)
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
@@ -54,6 +58,9 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
 
     // Gestion des membres
     Route::resource('members', AdminMemberController::class);
+
+    // Gestion des projets
+    Route::resource('projects', AdminProjectController::class);
 
     // Profile routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

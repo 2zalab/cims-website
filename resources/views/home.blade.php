@@ -105,7 +105,7 @@
 <div class="hero-section text-center {{ !file_exists(public_path('images/hero.png')) ? 'no-bg' : '' }}">
     <div class="main-container position-relative" style="z-index: 2; padding: 20px 0 20px;">
         <h1 class="display-3 fw-bold mb-4 fade-in-up">Cercle des Ingénieurs de Mayo-Sava</h1>
-        <p class="lead mb-2 fs-3 fw-semibold">Solidarité - Développement - Unité</p>
+        <p class="lead mb-2 fs-3 fw-semibold">Unité - Solidarité - Développement</p>
         <p class="mb-5 fs-5" style="max-width: 700px; margin: 0 auto;">
             Ensemble pour le développement durable et harmonieux du Département de Mayo-Sava
         </p>
@@ -214,7 +214,7 @@
                         "Chers membres, chers partenaires, chers amis du développement,"
                     </p>
                     <p class="mb-3 text-muted">
-                        C'est avec un immense honneur et une profonde reconnaissance que je m'adresse à vous en tant que Président du Cercle des Ingénieurs de Mayo-Sava. Notre association, guidée par les valeurs de <strong>Solidarité, Développement et Unité</strong>, s'est donnée pour mission de contribuer activement à l'émergence de notre département.
+                        C'est avec un immense honneur et une profonde reconnaissance que je m'adresse à vous en tant que Président du Cercle des Ingénieurs de Mayo-Sava. Notre association, guidée par les valeurs d'<strong>Unité, Solidarité et Développement</strong>, s'est donnée pour mission de contribuer activement à l'émergence de notre département.
                     </p>
                     <p class="mb-3 text-muted">
                         Ensemble, nous mettons notre expertise d'ingénieurs au service des communautés de Mayo-Sava. Que ce soit dans les domaines de l'eau et l'assainissement, de l'énergie, de l'agriculture ou de l'environnement, notre engagement reste inébranlable.
@@ -373,6 +373,64 @@
         </a>
     </div>
     @endif
+</div>
+
+<!-- Nos Projets -->
+<div class="bg-light py-0">
+    <div class="main-container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Nos Projets</h2>
+            <p class="section-subtitle">Découvrez nos projets en cours et réalisés</p>
+        </div>
+        <div class="row g-4">
+            @forelse($projects as $project)
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    @if($project->image)
+                    <div style="height: 220px; overflow: hidden;">
+                        <img src="{{ asset('storage/' . $project->image) }}" class="card-img-top" alt="{{ $project->title }}" style="height: 100%; width: 100%; object-fit: cover;">
+                    </div>
+                    @else
+                    <div class="bg-gradient d-flex align-items-center justify-content-center" style="height: 220px; background: linear-gradient(135deg, #b45309 0%, #10b981 100%);">
+                        <i class="fas fa-project-diagram fa-4x text-white opacity-50"></i>
+                    </div>
+                    @endif
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            @if($project->status === 'planned')
+                            <span class="badge bg-info">Planifié</span>
+                            @elseif($project->status === 'in_progress')
+                            <span class="badge bg-warning">En cours</span>
+                            @else
+                            <span class="badge bg-success">Terminé</span>
+                            @endif
+                            @if($project->location)
+                            <span class="badge bg-secondary ms-2"><i class="fas fa-map-marker-alt me-1"></i>{{ Str::limit($project->location, 15) }}</span>
+                            @endif
+                        </div>
+                        <h5 class="card-title fw-bold mb-3">{{ $project->title }}</h5>
+                        <p class="card-text text-muted mb-4">{{ Str::limit($project->description, 120) }}</p>
+                        <a href="{{ route('projects.show', $project) }}" class="btn btn-outline-primary btn-sm">
+                            Lire plus <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            @empty
+            <div class="col-12 text-center py-5">
+                <i class="fas fa-project-diagram fa-4x text-muted mb-3"></i>
+                <p class="text-muted fs-5">Aucun projet pour le moment.</p>
+            </div>
+            @endforelse
+        </div>
+        @if($projects->count() > 0)
+        <div class="text-center mt-5">
+            <a href="{{ route('projects.index') }}" class="btn btn-primary btn-lg px-5">
+                Voir tous les projets <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+        </div>
+        @endif
+    </div>
 </div>
 
 <!-- Galerie Aperçu -->
