@@ -8,7 +8,7 @@
     <div class="main-container position-relative" style="z-index: 2;">
         <h1 class="display-4 fw-bold mb-3">À Propos du CIMS</h1>
         <p class="lead fs-4">Cercle des Ingénieurs de Mayo-Sava</p>
-        <p class="fw-bold fs-5 mt-3" style="color: #fbbf24;">Solidarité - Développement - Unité</p>
+        <p class="fw-bold fs-5 mt-3" style="color: #fbbf24;">Unité - Solidarité - Développement</p>
     </div>
 </div>
 
@@ -67,7 +67,7 @@
                     </div>
                     <div>
                         <h6 class="fw-bold mb-2">Devise</h6>
-                        <p class="text-warning fw-bold mb-0">Solidarité - Développement - Unité</p>
+                        <p class="text-warning fw-bold mb-0">Unité - Solidarité - Développement</p>
                     </div>
                 </div>
             </div>

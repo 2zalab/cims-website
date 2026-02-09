@@ -484,6 +484,10 @@
                 <i class="fas fa-users"></i>
                 <span>Membres</span>
             </a>
+            <a class="nav-link {{ request()->routeIs('admin.projects.*') ? 'active' : '' }}" href="{{ route('admin.projects.index') }}">
+                <i class="fas fa-project-diagram"></i>
+                <span>Projets</span>
+            </a>
 
             <hr class="sidebar-divider">
 

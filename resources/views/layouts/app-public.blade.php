@@ -359,6 +359,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('projects.*') ? 'active' : '' }}" href="{{ route('projects.index') }}">
+                            <i class="fas fa-project-diagram"></i> Projets
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('gallery.*') ? 'active' : '' }}" href="{{ route('gallery.index') }}">
                             <i class="fas fa-images"></i> Galerie
                         </a>
@@ -396,7 +401,7 @@
                         CIMS
                     </h5>
                     <p>Cercle des Ingénieurs de Mayo-Sava</p>
-                    <p class="fw-bold text-warning">Solidarité - Développement - Unité</p>
+                    <p class="fw-bold text-warning">Unité - Solidarité - Développement</p>
                     <div class="mt-3">
                         <a href="#" class="me-3"><i class="fab fa-facebook fa-lg"></i></a>
                         <a href="#" class="me-3"><i class="fab fa-twitter fa-lg"></i></a>
@@ -409,6 +414,7 @@
                         <li class="mb-2"><a href="{{ route('about') }}"><i class="fas fa-chevron-right me-2"></i>À Propos</a></li>
                         <li class="mb-2"><a href="{{ route('activities.index') }}"><i class="fas fa-chevron-right me-2"></i>Activités</a></li>
                         <li class="mb-2"><a href="{{ route('news.index') }}"><i class="fas fa-chevron-right me-2"></i>Actualités</a></li>
+                        <li class="mb-2"><a href="{{ route('projects.index') }}"><i class="fas fa-chevron-right me-2"></i>Projets</a></li>
                         <li class="mb-2"><a href="{{ route('gallery.index') }}"><i class="fas fa-chevron-right me-2"></i>Galerie</a></li>
                         <li class="mb-2"><a href="{{ route('contact.index') }}"><i class="fas fa-chevron-right me-2"></i>Contact</a></li>
                     </ul>

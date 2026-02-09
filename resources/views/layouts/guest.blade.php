@@ -324,7 +324,7 @@
                 </div>
                 <h1>CIMS</h1>
                 <p>Cercle des Ingénieurs de Mayo-Sava</p>
-                <p class="tagline">Solidarité • Développement • Unité</p>
+                <p class="tagline">Unité • Solidarité • Développement</p>
             </div>
         </div>
 

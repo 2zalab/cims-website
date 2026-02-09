@@ -2,7 +2,7 @@
 
 Site web officiel de l'association CIMS (Cercle des Ingénieurs de Mayo-Sava), développé avec Laravel.
 
-**Devise:** Solidarité - Développement - Unité
+**Devise:** Unité - Solidarité - Développement
 
 ## 📋 Fonctionnalités
 
